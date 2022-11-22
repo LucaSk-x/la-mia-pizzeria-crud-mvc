@@ -1,0 +1,130 @@
+﻿@{ Layout = "_RazorLayout"; }
+
+<a asp-controller="Home" asp-action="Index">Home</a>
+
+<div class="py-4"> @*_________snack 1__________*@
+    
+<p>
+    1. Dichiarare una variabile valorizzandola con il nostro nome.
+    Dichiarare un'altra variabile valorizzandola con il nostro cognome.
+    Stampare il nostro nome e cognome all'interno di un tag h2.
+</p>
+
+
+    @{
+        string nome = "Luca";
+        string cognome = "Piccinno";
+    }
+
+    <div>
+        @nome @cognome
+    </div>
+
+</div>
+
+
+
+<div class="py-4">  @*snack 2*@
+    <p>
+        2. Creare una funzione che stampa la somma dei numeri che vanno da 1 a n (con n passato come parametro - n incluso)
+        Stampare dentro uno span il risultato.
+    </p>
+
+    @{
+        int sommaNumeri(int numero)
+        {
+            if (numero == 1)
+            {
+                return 1;
+            }
+            return numero + sommaNumeri(numero - 1);
+        }
+    }
+
+    <div>
+         @sommaNumeri(15);
+    </div>
+</div>
+
+
+<div class="py-4"> @*________snack 3________*@
+    <p>
+        3. Contare quante volte la lettera a è presente nalla frase "nel mezzo del cammin di nostra vita" e stampare questo valore in pagina
+    </p>
+
+    @{
+        string dante = "nel mezzo del cammin di nostra vita";
+
+        int cercaLettera(string frase, char lettera)
+        {
+            int numeroLettera = 0;
+            foreach (char item in frase)
+            {
+                if (lettera == item)
+                {
+                    numeroLettera++;
+                }
+            }
+            return numeroLettera;
+        }
+    }
+
+    <div class="py-4">
+        @cercaLettera(dante, 'a')
+    </div
+</div>
+
+
+<div class="py-4"> @*________snack 4________*@
+    
+    <p>
+        4. Creare una List int di 20 numeri interi (generati random da 1 a 90, 1 e 90 inclusi) e mostrare in pagina solo i numeri compresi tra 20 e 70
+    </p>
+
+
+    @{
+        List<int> numeri = new List<int>();
+        while (numeri.Count < 20)
+        {
+            Random rnd = new Random();
+            numeri.Add(rnd.Next(1, 91));
+        }
+    }
+
+    <div>
+        <ul>
+                @foreach (int numero in numeri)
+                {
+                    <li>@numero</li>
+                }
+        </ul>
+    </div>
+</div>
+
+
+<div class="py-4"> @*________snack 5________*@
+    
+    <p class="py-4">
+    5. Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi
+    </p>
+
+    <div>
+         <p>Data e Ora: <span>@DateTime.Now.ToString();</span></p>
+    </div>
+</div>
+
+
+<div class="py-4">
+    @* 6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina
+    a. la data di 7 giorni fa
+    b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
+    c. che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)*@
+
+    <p>Data 7 giorni fa: @DateTime.Now.AddDays(-7)</p>
+    <p>Giorno della settimana: @DateTime.Now.DayOfWeek</p>
+    <p>Giorno della settimana tra un anno: @DateTime.Now.AddYears(1).DayOfWeek</p>
+</div>
+
+
+
+

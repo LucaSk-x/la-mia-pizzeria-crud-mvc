@@ -1,0 +1,32 @@
+﻿@model List<Pizza>
+
+<h1>Pizze</h1>
+
+@if(Model.Count() == 0) {
+    <h3>Non sono presenti Pizze</h3>
+} else {
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Immagine</th>
+                    <th>Nome</th>
+                    <th>Descrizione</th>
+                    <th>Dettagli Pizza</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (Pizza pizza in Model)
+            {
+                <tr>
+                    <td class="id">@pizza.Id</td>
+                    <td class="image"><img class="post-list-image" src="@pizza.Image"></td>
+                    <td class="name">@pizza.Name</td>
+                    <td class="description">@pizza.Description</td>
+                    <td class="description"><a href="@Url.Action("Detail",new {id = pizza.Id})">Scopri di più</a></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+}
+
