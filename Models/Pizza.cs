@@ -16,7 +16,7 @@ namespace la_mia_pizzeria_static.Models
         [Required(ErrorMessage = "Il campo Descrizione non può essere vuoto")]
         public string Description { get; set; }
 
-        [Range(Int32.MinValue, 1, ErrorMessage ="Il campo deve essere minimo di 1")]
+        //[Range(Int32.MinValue, 1, ErrorMessage ="Il campo deve essere minimo di 1")]
         public double Price { get; set; }
 
         [Required(ErrorMessage = "Il campo Immagine non può essere vuoto")]
