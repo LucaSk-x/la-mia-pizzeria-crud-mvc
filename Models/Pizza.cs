@@ -8,7 +8,6 @@ namespace la_mia_pizzeria_static.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Il campo nome non può essere vuoto")]
-        [StringLength(100, ErrorMessage = "Il titolo non può essere oltre i 100 caratteri")]
         public string Name { get; set; }
 
         [Column(TypeName = "text")]
@@ -21,6 +20,10 @@ namespace la_mia_pizzeria_static.Models
 
         [Required(ErrorMessage = "Il campo Immagine non può essere vuoto")]
         public string Image { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public Category? Category { get; set; }
 
         public Pizza()
         {
