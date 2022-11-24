@@ -85,7 +85,7 @@ namespace la_mia_pizzeria_static.Controllers
         public IActionResult Edit(int id)
         {
 
-            Pizza pizza = db.Pizze.Where(post => post.Id == id).FirstOrDefault();
+            Pizza pizza = db.Pizze.Where(pizza => pizza.Id == id).Include(p => p.Ingredients).FirstOrDefault();
 
             if (pizza == null)
                 return NotFound();
@@ -94,6 +94,14 @@ namespace la_mia_pizzeria_static.Controllers
 
             formData.Pizza = pizza;
             formData.Categories = db.Categories.ToList();
+            formData.Ingredients = new List<SelectListItem>();
+
+            List<Ingredient> ingredientList = new List<Ingredient>();
+
+            foreach (Ingredient ingredient in ingredientList)
+            {
+                formData.Ingredients.Add(new SelectListItem(ingredient.Name, ingredient.Id.ToString()));
+            }
 
             return View(formData);
         }
