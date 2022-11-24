@@ -35,6 +35,7 @@ namespace la_mia_pizzeria_static.Controllers
 
             formData.Pizza = new Pizza();
             formData.Categories = db.Categories.ToList();
+            formData.Ingredients = db.Ingredients.ToList();
 
             return View(formData);
         }
