@@ -25,6 +25,14 @@
                 <strong>Categoria:</strong>
                 @Model.Category.Title
             </p>
+            <p>
+                <strong>Ingredienti:</strong>
+                <div>
+                @foreach(Ingredient ingredient in Model.Ingredients){
+                    <span class="badge bg-light text-dark">@ingredient.Name</span>
+                }
+                </div>
+            </p>
         </div>
     </div>
 </div>
