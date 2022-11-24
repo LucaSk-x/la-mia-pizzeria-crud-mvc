@@ -29,8 +29,14 @@
                     <textarea asp-for="Pizza.Description" rows="10" class="d-block form-control w-100"></textarea>
                     <span asp-validation-for="Pizza.Description" class="text-danger"></span>
                 </div>
-                <div class="text-end">
-                    <input type="submit" class="btn btn-small btn-success" value="Salva">
+                <div class="mb-3">
+                    <select asp-for="SelectedIngredients" 
+                        asp-items="@Model.Ingredients"
+                        class="form-control mb-2 mr-sm-2 ml-sm-3 leftList"
+                        multiple="multiple" 
+                        size="10">
+
+                    </select>
                 </div>
                 <div class="mb-3">
                     <strong>Categoria:</strong>
@@ -47,6 +53,9 @@
                             }
                         }
                     </select>
+                </div>
+                <div class="text-end">
+                    <input type="submit" class="btn btn-small btn-success" value="Salva">
                 </div>
             </form>
         </div>
